@@ -21,8 +21,10 @@ with open (sys.argv[1], "r") as fin:
                 evalue = " "
                 ident = " "
                 pre.append([Query, target, evalue, ident, score])
-        
-        elif (line.startswith(">")) and (t == 0) and Query!=line.split()[1]:
+        #If we want to export all the listed hits/targets for one query:
+        elif (line.startswith(">")) and Query!=line.split()[1]:
+        #If we only want to export the top hit/target that is not the query:
+        #elif (line.startswith(">")) and (t == 0) and Query!=line.split()[1]:
                 target = line.split()[1]
                 t=2
         elif (line.startswith(" Score")) and (t==2):
